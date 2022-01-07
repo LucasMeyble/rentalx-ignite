@@ -9,12 +9,17 @@ const specificationsRepository = new SpecificationsRepository()
 specificationRoutes.post("/", (req, res) => {
   
   const { name, description } = req.body;
-
   const createSpecificationService = new CreateSpecificationService(specificationsRepository);
 
   createSpecificationService.execute({name, description});
 
   return res.status(201).send();
 });
+
+specificationRoutes.get("/", (req, res) => {
+  const all = specificationsRepository.list();
+
+  return res.json(all);
+})
 
 export { specificationRoutes }
