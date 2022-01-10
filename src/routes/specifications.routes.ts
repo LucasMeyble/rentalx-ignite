@@ -3,7 +3,6 @@ import { createSpecificationController } from "../modules/cars/useCases/createSp
 
 const specificationRoutes = Router();
 
-
 specificationRoutes.post("/", (req, res) => {
   return createSpecificationController.handle(req, res);
 });
