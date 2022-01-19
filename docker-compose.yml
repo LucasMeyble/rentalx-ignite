@@ -1,0 +1,16 @@
+# comando exec para docker composer: docker-compose up
+
+version: "3.8"
+
+services:
+  # nome do serviço
+  app:
+    # informação q passo para dentro do app / o "." significa repositorio local
+    build: .
+    container_name: rentx
+    # portas disponiveis na aplicação
+    ports: 
+      - 3333:3333
+    # seria o workdir do dockerfile
+    volumes:
+      - .:/usr/app
